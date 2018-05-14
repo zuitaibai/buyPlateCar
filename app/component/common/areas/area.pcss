@@ -1,0 +1,29 @@
+.areas-top{
+  line-height: 2.2;
+  border-bottom:1px solid #0a6cd6;
+  &>li{
+    &:nth-child(2n){background: rgba(204, 204, 204, 0.53);}
+    &:nth-child(2n+1){width:.2rem;}
+    &.active{background: #0a6cd6;color:#fff;}
+  }
+}
+
+.areas-btm{
+  line-height: 2.5;
+  min-height:4rem;
+  font-size:0;
+  text-align: left;
+  &>span{
+    box-sizing: border-box;
+    width:25%;
+    display:inline-block;
+    font-size:.24rem;
+    &:not(:nth-child(4n+1)){border-left:1px solid #ccc;}
+    &:empty{border-bottom:none;
+      &:after{content: '\2002'; speak: none;}
+    }
+    &.active{background: rgba(10, 108, 214, 0.72); }
+    border-bottom:1px solid #ccc;
+    text-align: center;
+  }
+}

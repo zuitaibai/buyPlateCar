@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no, email=no, adress=no">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <script>
+        !(function(Win,Doc){
+            var docEl = Doc.documentElement,
+                resizeEvt = 'orientationchange' in Win ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth > 414) {
+                        docEl.style.fontSize = '60px';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    }
+                };
+            if (!Doc.addEventListener) return;
+            Win.addEventListener(resizeEvt, recalc, false);
+            Doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(window,document);
+    </script>
+</head>
+<body>
+<div id="app" class="app"></div>
+</body>
+</html>

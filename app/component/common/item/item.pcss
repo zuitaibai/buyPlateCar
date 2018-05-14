@@ -1,0 +1,17 @@
+.list1{
+  &>p:nth-child(1){}
+  &>p:nth-child(2){}
+  dl{
+    &>dd{box-sizing:border-box;width:calc((100% - .16rem - 2px)/3);background:url('./p1.png') no-repeat center center;background-size:contain;}
+    &>dd>img{width:100%;}
+    &>dd:nth-child(2){padding:0 .08rem;}
+  }
+}
+.list2>a{
+  &>div:nth-child(1){
+    min-height:1.6rem;background:url('./p1.png') no-repeat center center;background-size:contain;
+    width:2.4rem;
+    &>img{width:100%;}
+  }
+  &>div:nth-child(2){padding-left:.3rem;}
+}
