@@ -56,7 +56,7 @@ class Index extends React.Component {
         this.setState({
             area1:{
                 display: false,
-                label: p+c+t
+                label: p+c+(t===-1?'':t)
             }
         });
     }
@@ -65,7 +65,7 @@ class Index extends React.Component {
         this.setState({
             area2:{
                 display: false,
-                label: p+c+t
+                label: p+c+(t===-1?'':t)
             }
         });
     }
@@ -92,10 +92,10 @@ class Index extends React.Component {
                     <div flex-box="1">
                         <p className="neck-area" onClick={this.toggleAreas.bind(this)}>{this.state[`area${this.state.activeTab+1}`].label}</p>
                         <div className="neckChild" style={{display:this.state.area1.display?'block':'none'}}>
-                            <Areas callback={this.area1Change.bind(this)} />
+                            <Areas initData={['河北','张家口市','沽源县']} callback={this.area1Change.bind(this)} />
                         </div>
                         <div className="neckChild" style={{display:this.state.area2.display?'block':'none'}}>
-                            <Areas callback={this.area2Change.bind(this)} />
+                            <Areas initData={[]} callback={this.area2Change.bind(this)} />
                         </div>
                     </div>
                     <div flex-box="0"></div>

@@ -20,6 +20,30 @@ class Areas extends React.Component {
             list2:[],
             list3:[]
         };
+
+        if(this.props.initData && this.props.initData.length===3){
+            let [a,b,c] = this.props.initData;
+            let arr = this.calcInitData(a,b,c);
+            this.state.step1Activ = arr[0];
+            this.state.step2Activ = arr[1];
+            this.state.step3Activ = arr[2];
+            this.state.stepTxt1 = a;
+            this.state.stepTxt2 = b;
+            this.state.stepTxt3 = c;
+            this.state.step = 3;
+            this.state.list2 = city[arr[0]];
+            this.state.list3 = county[arr[0]][arr[1]];
+        }
+    }
+    calcInitData(pStr,cStr,tStr){
+        let pIndex = province.indexOf(pStr), CIndex = -1, tIndex = -1;
+        if(pIndex>-1){
+            CIndex = city[pIndex].indexOf(cStr);
+            if(CIndex>-1){
+                tIndex = county[pIndex][CIndex].indexOf(tStr);
+            }
+        }
+        return [pIndex, CIndex, tIndex]
     }
     sclick(index,callback){
         if(this.state.step===1){
